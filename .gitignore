@@ -1,0 +1,75 @@
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+*.sqlite3
+
+# Virtual environment
+venv/
+env/
+.venv/
+.env/
+
+# Django
+*.log
+*.pot
+*.pyc
+*.pyd
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+static/
+*.log
+*.pot
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+*.sqlite3
+
+/ecom
+
+# Configuration
+*.local
+*.env
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.bak
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+
+# Python Testing
+.tox/
+.nox/
+pytest_cache/
+.coverage
+
+# Miscellaneous
+*.zip
+*.tar.gz
+*.tar
