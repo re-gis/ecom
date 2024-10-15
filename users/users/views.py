@@ -92,7 +92,7 @@ def login(request):
 @permission_classes([IsAuthenticated])
 def getUsers(request):
     if request.user.role == "ADMIN":
-        users = CustomUser.objects.all()
+        users = User.objects.all()
         serializer = UserSerializer(users, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     return Response(
@@ -105,7 +105,7 @@ def getUsers(request):
 @permission_classes([IsAuthenticated])
 def getUserById(request, pk):
     try:
-        user = CustomUser.objects.get(pk=pk)
+        user = User.objects.get(pk=pk)
     except CustomUser.DoesNotExist:
         return Response({"error": "User not found"}, status=status.HTTP_404_NOT_FOUND)
 
@@ -122,7 +122,7 @@ def getUserById(request, pk):
 @permission_classes([IsAuthenticated])
 def update(request, pk):
     try:
-        user = CustomUser.objects.get(pk=pk)
+        user = User.objects.get(pk=pk)
     except CustomUser.DoesNotExist:
         return Response(
             {"error": "User does not exist."}, status=status.HTTP_404_NOT_FOUND
@@ -144,7 +144,7 @@ def update(request, pk):
 @permission_classes([IsAuthenticated])
 def deleteUser(request, pk):
     try:
-        user = CustomUser.objects.get(pk=pk)
+        user = User.objects.get(pk=pk)
     except CustomUser.DoesNotExist:
         return Response(
             {"error": "User does not exist."}, status=status.HTTP_404_NOT_FOUND
