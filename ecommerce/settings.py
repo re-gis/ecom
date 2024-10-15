@@ -39,7 +39,21 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'store.store',
     'rest_framework',
-    'users.users'
+    'users.users',
+    'rest_framework_simplejwt',
+    'orders',
+    'carts'
+]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
+AUTHENTICATION_BACKENDS = [
+    'users.users.backends.EmailBackend', 
+    'django.contrib.auth.backends.ModelBackend', 
 ]
 
 MIDDLEWARE = [

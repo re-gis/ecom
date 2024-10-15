@@ -1,10 +1,10 @@
 from django.contrib.auth.models import (
     AbstractBaseUser,
     BaseUserManager,
-    PermissionsMixin,
 )
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.conf import settings
 
 
 class Role(models.TextChoices):
@@ -49,3 +49,14 @@ def create_superuser(self, email, first_name, last_name, password=None):
     user.is_admin = True
     user.save(using=self._db)
     return user
+
+
+class Customer(models.Model):
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL, blank=True, null=True, on_delete=models.CASCADE
+    )
+    name = models.CharField(max_length=255, null=True)
+    email = models.EmailField(max_length=255, null=True)
+
+    def __str__(self) -> str:
+        return self.name

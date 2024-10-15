@@ -16,17 +16,17 @@ class ProductSerializer(serializers.ModelSerializer):
 
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Order
+        model = 'orders.Order'
         fields = "__all__"
 
 
 class OrderItemSerializer(serializers.ModelSerializer):
     class Meta:
-        model = OrderItem
+        model = 'orders.OrderItem'
         fields = "__all__"
 
 
 class ShippingAddressSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ShippingAddress
+        model = "shippings.ShippingAddress"
         fields = "__all__"

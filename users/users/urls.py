@@ -19,4 +19,11 @@ from django.contrib import admin
 from django.urls import path
 from users.users import views
 
-urlpatterns = [path("", views.register, name="register")]
+urlpatterns = [
+    path("", views.register, name="register"),
+    path("/login", views.login, name="login"),
+    path("/all", views.getUsers, name="getUsers"),
+    path('/<int:pk>', views.getUserById, name="getUserById"),
+    path('/delete/<int:pk>', views.deleteUser, name="deleteUserById"),
+    path('/update/<int:pk>', views.update, name="updateUser"),
+]
